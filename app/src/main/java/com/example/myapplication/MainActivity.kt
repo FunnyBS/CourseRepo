@@ -20,26 +20,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyNav()
-//            AnimateLogo()
-        }
-    }
-}
-
-@Composable
-fun AnimateLogo(){
-    var visible by remember {
-        mutableStateOf(true)
-    }
-    Column {
-        Button(onClick = { visible = !visible }) {
-            Text("Button")
-        }
-        AnimatedVisibility(
-            visible = visible,
-            enter = fadeIn(),
-            exit = fadeOut()
-        ) {
-            Text(text = "Hello, world!")
         }
     }
 }
