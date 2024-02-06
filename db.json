@@ -1,0 +1,26 @@
+{
+  "Appetizers":
+    [
+      "Spinach Artichoke Dip",
+      "Hummus",
+      "Fried Calamari Rings",
+      "Fried Mushrooms"
+    ],
+  "Salads": [
+      "Greek",
+      "Caesar",
+      "Mediterranean Tuna Salad",
+      "Grilled Chicken Salad"
+    ],
+  "Drinks": [
+      "Water",
+      "Coke",
+      "Beer",
+      "Iced Tea"
+    ],
+  "Dessert": [
+      "Baklawa",
+      "Ice cream"
+    ]
+}
+
