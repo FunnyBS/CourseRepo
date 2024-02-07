@@ -2,8 +2,6 @@ package com.example.myapplication
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -11,16 +9,12 @@ import androidx.activity.compose.setContent
 import androidx.annotation.WorkerThread
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import kotlinx.coroutines.Dispatchers
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
-import androidx.lifecycle.lifecycleScope
-import androidx.activity.compose.setContent
-import androidx.compose.runtime.LaunchedEffect
-
 
 
 private const val ENDPOINT = "https://10.0.2.2:3000"
@@ -32,7 +26,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyCompose(this)
+            MyNav()
         }
     }
 }
