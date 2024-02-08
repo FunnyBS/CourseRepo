@@ -1,75 +1,32 @@
+@file:OptIn(DelicateCoroutinesApi::class)
+
 package com.example.myapplication
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.annotation.WorkerThread
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
-
-
-private const val ENDPOINT = "https://10.0.2.2:3000"
-private const val SALADS_URI = "/Salads"
-
-
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
+    val TAG = "Coursera"
+
+    @SuppressLint("CoroutineCreationDuringComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyNav()
+//            MyNav()
+            GlobalScope.launch {
+                delay(4000L)
+                Log.d(TAG, "Coroutine says hello from thread ${Thread.currentThread().name}")
+            }
         }
+        Log.d(TAG, "Hello from thread ${Thread.currentThread().name}")
     }
 }
 
-@Composable
-fun MyCompose(context: Context) {
-    val data = remember { mutableStateOf("") }
-
-    LaunchedEffect(Unit) { // Starts a coroutine when recomposed
-        try {
-            val result = getMenu()
-            data.value = result
-        } catch (e: Exception) {
-            // Handle network errors here, e.g., show an error message
-            Toast.makeText(context, "Network error: ${e.message}", Toast.LENGTH_SHORT).show()
-            Log.e("TAG", "Error: ${e.message}", e)
-        }
-    }
-
-    Text(text = data.value)
-}
-
-
-fun getMenu(): String{
-    val httpUrlConnection = URL(ENDPOINT + SALADS_URI).openConnection() as HttpURLConnection
-    httpUrlConnection.apply {
-        connectTimeout = 10000
-        requestMethod = "GET"
-        doInput = true
-    }
-    if (httpUrlConnection.responseCode != HttpURLConnection.HTTP_OK) {
-        return "Failure"
-    }
-    val streamReader = InputStreamReader(httpUrlConnection.inputStream)
-    var text: String = ""
-    streamReader.use {
-        text = it.readText()
-    }
-    httpUrlConnection.disconnect()
-    return text
-}
-
-@WorkerThread
-fun addDish () {
-
-}
