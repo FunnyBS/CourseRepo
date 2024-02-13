@@ -37,6 +37,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.lifecycle.lifecycleScope
+import org.json.JSONObject
 
 const val TAG = "Coursera"
 
