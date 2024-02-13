@@ -40,7 +40,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.myapplication.BottomNavigationItem
 import com.example.myapplication.R
 import com.example.myapplication.data.NavigationItem
 import kotlinx.coroutines.launch

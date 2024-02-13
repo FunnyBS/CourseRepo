@@ -1,15 +1,17 @@
-package com.example.myapplication.data
+package com.example.myapplication.utils
 
+import com.example.myapplication.data.ApiInterface
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 object RetrofitInstance {
-    val api: MenuApi by lazy {
+
+    val api: ApiInterface by lazy {
         Retrofit.Builder()
-            .baseUrl("http://localhost:3000")
+            .baseUrl(Util.Base)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(MenuApi::class.java)
+            .create(ApiInterface::class.java)
     }
 }

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.example.myapplication
+package com.example.myapplication.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -42,15 +42,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.myapplication.data.DishDetails
+import com.example.myapplication.R
 import com.example.myapplication.data.Dashboard
 import com.example.myapplication.data.Details
 import com.example.myapplication.data.Menu
 import com.example.myapplication.data.NavigationItem
-import com.example.myapplication.screens.BottomBar
-import com.example.myapplication.screens.HomeScreen
-import com.example.myapplication.screens.LoginScreen
-import com.example.myapplication.screens.News
-import com.example.myapplication.screens.Settings
 import kotlinx.coroutines.launch
 
 @Composable
@@ -81,11 +78,11 @@ data class BottomNavigationItem (
     var badgeCount: Int? = null)
 
 sealed class Screen(val route:String) {
-    object Login:Screen("Login")
-    object Home:Screen("Home")
-    object News:Screen("News")
-    object Settings:Screen("Settings")
-    object DishDetails:Screen("DishDetails")
+    object Login: Screen("Login")
+    object Home: Screen("Home")
+    object News: Screen("News")
+    object Settings: Screen("Settings")
+    object DishDetails: Screen("DishDetails")
 }
 
 private fun currentDestination(navController: NavController): String? {
