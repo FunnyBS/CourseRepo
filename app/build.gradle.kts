@@ -51,6 +51,9 @@ android {
 
 dependencies {
 
+    implementation ("com.github.bumptech.glide:compose:1.0.0-alpha.1")
+    implementation ("com.github.bumptech.glide:glide:4.14.2")
+    implementation("com.google.code.gson:gson:2.10")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation ("androidx.compose.runtime:runtime-livedata:1.6.1")
     implementation ("io.ktor:ktor-client-android:2.1.3")
