@@ -51,6 +51,7 @@ android {
 
 dependencies {
 
+    implementation("io.coil-kt:coil-compose:2.4.0")
     implementation ("com.github.bumptech.glide:compose:1.0.0-alpha.1")
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     implementation("com.google.code.gson:gson:2.10")
@@ -63,7 +64,7 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
